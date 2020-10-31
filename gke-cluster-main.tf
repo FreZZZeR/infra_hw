@@ -8,8 +8,8 @@ resource "google_container_cluster" "primary" {
   subnetwork               = google_compute_subnetwork.subnet.name
 
   master_auth {
-    username = ""
-    password = ""
+    //username = "admin"
+    //password = "admin123admin123!!!"
 
     client_certificate_config {
       issue_client_certificate = true
@@ -24,5 +24,9 @@ output "GKE_Cluster_location" {
 output "GKE_Cluster_name" {
   value       = google_container_cluster.primary.name
   description = "GKE Cluster name"
+}
+output "GKE_ENDPOINT" {
+  value       = google_container_cluster.primary.endpoint
+  description = "GKE EndPoint address"
 }
 
