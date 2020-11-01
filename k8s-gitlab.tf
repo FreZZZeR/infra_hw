@@ -65,7 +65,7 @@ resource "kubernetes_deployment" "gitlab" {
             name = kubernetes_persistent_volume_claim.gitlabconfig.metadata.0.name
           }
           port {
-            container_port = 22
+            container_port = 80
           }
           port {
             container_port = 22
