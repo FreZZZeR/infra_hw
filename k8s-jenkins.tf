@@ -43,7 +43,7 @@ resource "kubernetes_deployment" "jenkins" {
         init_container {
           name = "init"
           image = "busybox:latest"
-          command = ['/bin/chown', '1000:1000', '/jenkins-data']
+          command = ["/bin/chown", "1000:1000", "/jenkins-data"]
           volume_mount {
             mount_path = "/jenkins-data"
             name = kubernetes_persistent_volume_claim.jenkinsdata.metadata.0.name

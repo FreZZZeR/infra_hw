@@ -1,4 +1,11 @@
 #RBAC roles for project
+#Service Account
+resource "kubernetes_service_account" "jenkins" {
+  metadata {
+    name = "jenkins"
+    namespace = var.prod_ns
+  }
+}
 #Role
 resource "kubernetes_role" "jenkins" {
   metadata {
@@ -43,11 +50,11 @@ resource "kubernetes_role_binding" "jenkins" {
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "Role"
-    name      = "jenkins"
+    name      = kubernetes_role.jenkins.metadata.0.name
   }
   subject {
     kind      = "ServiceAccount"
-    name      = "jenkins"
-    api_group = "rbac.authorization.k8s.io"
+    name      = kubernetes_service_account.jenkins.metadata.0.name
+    api_group = ""
   }
 }
