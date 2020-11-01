@@ -25,8 +25,12 @@ output "GKE_Cluster_name" {
   value       = google_container_cluster.primary.name
   description = "GKE Cluster name"
 }
-output "GKE_ENDPOINT" {
+output "GKE_EndPoint" {
   value       = google_container_cluster.primary.endpoint
   description = "GKE EndPoint address"
+}
+output "GKE_Project" {
+  value       = var.project_id
+  description = "GKE Project"
 }
 

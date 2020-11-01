@@ -40,3 +40,7 @@ variable "dev_ns" {
   description = "Developers namespace name"
   default = "Developing"
 }
+variable "registry_location" {
+  description = "GCP Registry location"
+  default = "US"
+}
