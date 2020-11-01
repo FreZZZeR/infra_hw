@@ -6,7 +6,7 @@ variable "creds" {
 }
 variable "project_id" {
   description = "Project ID"
-  default = "my_temporary_project"
+  default = "My First Project"
 }
 variable "region" {
   description = "GKE region"
@@ -27,4 +27,16 @@ variable "gke_number_nodes" {
 variable "machine_type" {
   description = "GKE nodes machine type"
   default = "e2-standard-2"
+}
+variable "prod_ns" {
+  description = "Production namespace name"
+  default = "Production"
+}
+variable "test_ns" {
+  description = "Test namespace name"
+  default = "Testing"
+}
+variable "dev_ns" {
+  description = "Developers namespace name"
+  default = "Developing"
 }
